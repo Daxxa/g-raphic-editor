@@ -6,3 +6,13 @@ D:\graphic\editor\editor\obj\Debug\editor.Properties.Resources.resources
 D:\graphic\editor\editor\obj\Debug\editor.csproj.GenerateResource.Cache
 D:\graphic\editor\editor\obj\Debug\editor.exe
 D:\graphic\editor\editor\obj\Debug\editor.pdb
+D:\Project\graphic-editor\graphic-editor\editor\editor\bin\Debug\editor.exe.config
+D:\Project\graphic-editor\graphic-editor\editor\editor\bin\Debug\editor.exe
+D:\Project\graphic-editor\graphic-editor\editor\editor\bin\Debug\editor.pdb
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.csprojAssemblyReference.cache
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.Form1.resources
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.Properties.Resources.resources
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.csproj.GenerateResource.cache
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.csproj.CoreCompileInputs.cache
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.exe
+D:\Project\graphic-editor\graphic-editor\editor\editor\obj\Debug\editor.pdb
