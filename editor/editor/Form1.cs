@@ -85,5 +85,11 @@ namespace editor
                 panel1.BackColor = MyDialog.Color;
             }
         }
+
+        private void panel1_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = new Cursor("C:/Users/hp/Desktop/brash.cur");
+           
+        }
     }
 }

@@ -312,6 +312,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 250);
             this.panel1.TabIndex = 2;
+            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
             // 
             // Form1
             // 
