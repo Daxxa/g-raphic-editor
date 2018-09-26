@@ -43,6 +43,9 @@
             this.фонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -160,6 +163,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Silver;
+            this.groupBox1.Controls.Add(this.button10);
+            this.groupBox1.Controls.Add(this.button9);
+            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -176,10 +182,40 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(9, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(108, 256);
+            this.groupBox1.Size = new System.Drawing.Size(108, 318);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Інструменти";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(6, 280);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(44, 28);
+            this.button10.TabIndex = 0;
+            this.button10.Text = "line";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(56, 250);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(44, 29);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "коло";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(6, 250);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(44, 29);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "кв";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label3
             // 
@@ -295,6 +331,7 @@
             this.button2.Size = new System.Drawing.Size(43, 31);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -304,28 +341,28 @@
             this.button1.Size = new System.Drawing.Size(44, 31);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(123, 37);
+            this.panel1.Location = new System.Drawing.Point(118, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 250);
+            this.panel1.Size = new System.Drawing.Size(505, 303);
             this.panel1.TabIndex = 2;
-
-            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
-
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(633, 295);
+            this.ClientSize = new System.Drawing.Size(633, 351);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -373,6 +410,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button10;
     }
 }
 
