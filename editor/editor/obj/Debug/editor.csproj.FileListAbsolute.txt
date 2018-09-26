@@ -36,3 +36,4 @@ D:\komanda\graphic-editor\editor\editor\obj\Debug\editor.csproj.GenerateResource
 D:\komanda\graphic-editor\editor\editor\obj\Debug\editor.csproj.CoreCompileInputs.cache
 D:\komanda\graphic-editor\editor\editor\obj\Debug\editor.exe
 D:\komanda\graphic-editor\editor\editor\obj\Debug\editor.pdb
+D:\graphic\editor\editor\obj\Debug\editor.Form1.resources

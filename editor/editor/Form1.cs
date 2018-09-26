@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace editor
 {
@@ -36,15 +37,20 @@ namespace editor
         int CursorX;
         int CursorY;
         PaintEventArgs pEventArg;
+        FileInfo file = null;
+        
         public Form1()
         {
             InitializeComponent();
             snapshot = new Bitmap(panel1.ClientRectangle.Width, this.ClientRectangle.Height);
+            g = Graphics.FromImage(snapshot);
             foreColor = Color.Black;
             lineWidth = 1;
-           // timer1.Start();
+            this.SetStyle(ControlStyles.UserPaint, true);
+            // timer1.Start();
         }
-
+        
+        
         private void iNFOToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -110,13 +116,25 @@ namespace editor
 
         private void button4_Click(object sender, EventArgs e)
         {
+            selectedTool = "q";
             ColorDialog MyDialog = new ColorDialog();
             MyDialog.AllowFullOpen = false;
             MyDialog.ShowHelp = true;
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
+               
+
+
                 button4.BackColor = MyDialog.Color;
                 panel1.BackColor = MyDialog.Color;
+
+                g.Clear(Color.White);
+                g = Graphics.FromImage(snapshot);
+                g.FillRectangle(new SolidBrush(MyDialog.Color), 0, 0, panel1.ClientRectangle.Width, this.ClientRectangle.Height);
+                g = panel1.CreateGraphics();
+                
+
+
             }
         }
 
@@ -154,7 +172,8 @@ namespace editor
                 x2 = e.X;
                 y2 = e.Y;
                 panel1.Invalidate();
-                panel1.Update();
+
+                //panel1.Update();
             }
         }
 
@@ -234,6 +253,33 @@ namespace editor
                     }
                     break;
 
+                case "button2":
+                    if (tempDraw != null)
+                    {
+                        Graphics g = Graphics.FromImage(tempDraw);
+                        Pen myPen = new Pen(CurrentColor, lineWidth);
+                        int k;
+                        Random r = new Random();
+                        
+                          for(k= 0;k<10;k++)
+                            {
+                            int i = r.Next(-20, 20);
+                            int j = r.Next(-20, 20);
+                            if ((Math.Pow(i,2)+ Math.Pow(j, 2))<=400)
+                            g.DrawLine(myPen, x2 + i, y2 + j, x2 + 1 + i, y2 + j );
+                            
+
+                        }
+                        
+                        myPen.Dispose();
+                        e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
+                        g.Dispose();
+                        x1 = x2;
+                        y1 = y2;
+                    }
+                    break;
+
+
                 default:
                     break;
             }
@@ -263,8 +309,7 @@ namespace editor
         }
 
 
-        //--------------------------------------------------
-       
+        
         private void button10_Click(object sender, EventArgs e)
         {
             selectedTool = button10.Name;
@@ -273,6 +318,71 @@ namespace editor
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         { 
 
+        }
+
+        private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|PNG Image|*.png";
+            ImageFormat format = ImageFormat.Png;
+            
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                
+                switch (saveFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        snapshot.Save(sfd.FileName,
+                           System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+
+                    case 2:
+                        snapshot.Save(sfd.FileName,
+                           System.Drawing.Imaging.ImageFormat.Bmp);
+                        
+                        break;
+
+                    case 3:
+                        snapshot.Save(sfd.FileName,
+                           System.Drawing.Imaging.ImageFormat.Png);
+                        
+                        break;
+                }
+                file = new FileInfo(sfd.FileName);
+            }
+            
+        }
+
+        private void зберегтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (file != null) {
+                snapshot.Save(file.FullName);
+
+            }
+        }
+
+        private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedTool = "q";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|PNG Image|*.png";
+            
+
+            // Show the Dialog.  
+            // If the user clicked OK in the dialog and  
+            // a .CUR file was selected, open it.  
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                g.Clear(Color.White);
+                
+                
+               
+                // Assign the cursor in the Stream to the Form's Cursor property.  
+                snapshot = new Bitmap(openFileDialog1.OpenFile());
+                g = Graphics.FromImage(snapshot);
+                g = panel1.CreateGraphics();
+                tempDraw = (Bitmap)snapshot.Clone();
+            }
         }
     }
 }
