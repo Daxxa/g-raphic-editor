@@ -17,6 +17,7 @@ namespace editor
     public partial class Form1 : Form
     {
         Color CurrentColor = Color.Black;
+        Color CurrentBack = Color.White;
         bool isPressed = false;
         Point CurrentPoint;
         Point PrevPoint;
@@ -127,7 +128,7 @@ namespace editor
 
                 button4.BackColor = MyDialog.Color;
                 panel1.BackColor = MyDialog.Color;
-
+                CurrentBack = panel1.BackColor;
                 g.Clear(Color.White);
                 g = Graphics.FromImage(snapshot);
                 g.FillRectangle(new SolidBrush(MyDialog.Color), 0, 0, panel1.ClientRectangle.Width, this.ClientRectangle.Height);
@@ -175,6 +176,8 @@ namespace editor
 
                 //panel1.Update();
             }
+            CursorX = e.X;
+            CursorY = e.Y;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -184,6 +187,8 @@ namespace editor
             y1 = e.Y;
 
             tempDraw = (Bitmap)snapshot.Clone();
+            CursorX = e.X;
+            CursorY = e.Y;
 
         }
 
@@ -191,6 +196,8 @@ namespace editor
         {
             mouseDown = false;
             snapshot = (Bitmap)tempDraw.Clone();
+            CursorX = e.X;
+            CursorY = e.Y;
 
         }
         private Random _rnd = new Random();
@@ -227,9 +234,10 @@ namespace editor
                 case "button9":
                     if (tempDraw != null)
                     {
+                        
                         tempDraw = (Bitmap)snapshot.Clone();
                         Graphics g = Graphics.FromImage(tempDraw);
-                        Pen myPen = new Pen(CurrentColor, lineWidth);
+                        Pen myPen = new Pen(CurrentColor, lineWidth+2);
                         g.DrawEllipse(myPen, x1, y1, x2 - x1, y2 - y1);
                         myPen.Dispose();
                         e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
@@ -245,6 +253,20 @@ namespace editor
                         Graphics g = Graphics.FromImage(tempDraw);
                         Pen myPen = new Pen(CurrentColor, lineWidth);
                         g.DrawLine(myPen, x1, y1, x2, y2);
+                        myPen.Dispose();
+                        e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
+                        g.Dispose();
+                        x1 = x2;
+                        y1 = y2;
+                    }
+                    break;
+
+                case "button3":
+                    if (tempDraw != null)
+                    {
+                        Graphics g = Graphics.FromImage(tempDraw);
+                        Pen myPen = new Pen(CurrentBack, 10);
+                        g.DrawLine(myPen, x1+10, y1+10, x2, y2);
                         myPen.Dispose();
                         e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
                         g.Dispose();
@@ -279,6 +301,17 @@ namespace editor
                     }
                     break;
 
+
+                case "button11":
+                    if (tempDraw != null)
+                    {
+                        Graphics g = Graphics.FromImage(tempDraw);
+                        this.FloodFill(tempDraw, CursorX, CursorY, CurrentColor);
+                        e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
+                        g.Dispose();
+
+                    }
+                    break;
 
                 default:
                     break;
@@ -316,8 +349,9 @@ namespace editor
         }
        
         private void panel1_MouseClick(object sender, MouseEventArgs e)
-        { 
-
+        {
+            CursorX = e.X;
+            CursorY = e.Y;
         }
 
         private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
@@ -383,6 +417,57 @@ namespace editor
                 g = panel1.CreateGraphics();
                 tempDraw = (Bitmap)snapshot.Clone();
             }
+        }
+        public void FloodFill(Bitmap bitmap, int x, int y, Color color)
+        {
+            var data = bitmap.LockBits( 
+                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            var bits = new int[data.Stride / 4 * data.Height];
+            Marshal.Copy(data.Scan0, bits, 0, bits.Length);
+
+            var check = new LinkedList<Point>();
+            var floodTo = color.ToArgb();
+            var floodFrom = bits[x + y * data.Stride / 4];
+            bits[x + y * data.Stride / 4] = floodTo;
+
+            if (floodTo != floodFrom)
+            {
+                check.AddLast(new Point(x, y));
+                while (check.Count > 0)
+                {
+                    var cur = check.First.Value;
+                    check.RemoveFirst();
+
+                    foreach (var off in new[]
+                                            {
+                                                new Point(-1, 0),new Point(-1, -1),
+                                                new Point(1, 0), new Point(1, 1),  //Точки для просмотриа
+                                                new Point(0, -1), new Point(0, 1)
+                                            })
+                    {
+                        var next = new Point(cur.X + off.X, cur.Y + off.Y);
+                        if (next.X < 0 || next.Y < 0 || next.X >= data.Width || next.Y >= data.Height) continue;
+                        var col = bits[next.X + next.Y * data.Stride / 4];
+                        if (floodFrom != col) continue;
+                        check.AddLast(next);
+                        bits[next.X + next.Y * data.Stride / 4] = floodTo;
+                    }
+                }
+            }
+
+            Marshal.Copy(bits, 0, data.Scan0, bits.Length);
+            bitmap.UnlockBits(data);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            selectedTool = "button11";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            selectedTool = "button3";
         }
     }
 }
