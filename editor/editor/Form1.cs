@@ -69,15 +69,13 @@ namespace editor
             MyDialog.ShowHelp = true;
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
-                button6.BackColor = button5.BackColor;
+                
                 button5.BackColor = MyDialog.Color;
-                
-                
-            }
-            DialogResult D = MyDialog.ShowDialog();
-            if (D == System.Windows.Forms.DialogResult.OK) {
                 CurrentColor = MyDialog.Color;
+
+
             }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -107,11 +105,14 @@ namespace editor
             int x, y, xx, yy;
             x = Convert.ToInt32(textBox1.Text);
             y = Convert.ToInt32(textBox2.Text);
+
             button7.Visible = false;
             panel1.Height = y;
             panel1.Width = x;
             mainf.Height = mainf.Height + (250 - y);
             mainf.Width = mainf.Width + (500 - x);
+            snapshot = new Bitmap(panel1.ClientRectangle.Width, panel1.ClientRectangle.Height);
+            g = Graphics.FromImage(snapshot);
 
         }
 
@@ -133,7 +134,8 @@ namespace editor
                 g = Graphics.FromImage(snapshot);
                 g.FillRectangle(new SolidBrush(MyDialog.Color), 0, 0, panel1.ClientRectangle.Width, this.ClientRectangle.Height);
                 g = panel1.CreateGraphics();
-                
+                Pen myPen = new Pen(MyDialog.Color, lineWidth);
+                g.DrawLine(myPen, 0, 0, 1, 0);
 
 
             }
@@ -414,9 +416,22 @@ namespace editor
                 // Assign the cursor in the Stream to the Form's Cursor property.  
                 snapshot = new Bitmap(openFileDialog1.OpenFile());
                 g = Graphics.FromImage(snapshot);
+                panel1.BackgroundImage = snapshot;
+                Pen myPen = new Pen(Color.White, lineWidth);
+                g.DrawLine(myPen, 0, 0, 2, 0);
                 g = panel1.CreateGraphics();
+                //panel1.BackColor = Color.White;
+               
                 tempDraw = (Bitmap)snapshot.Clone();
+                //g.Clear(Color.White);
+                //g = Graphics.FromImage(snapshot);
+                //g.FillRectangle(new SolidBrush(MyDialog.Color), 0, 0, panel1.ClientRectangle.Width, this.ClientRectangle.Height);
+                //g = panel1.CreateGraphics();
+                //Pen myPen = new Pen(MyDialog.Color, lineWidth);
+                //g.DrawLine(myPen, 0, 0, 1, 0);
+
             }
+            
         }
         public void FloodFill(Bitmap bitmap, int x, int y, Color color)
         {
@@ -468,6 +483,16 @@ namespace editor
         private void button3_Click(object sender, EventArgs e)
         {
             selectedTool = "button3";
+        }
+
+        private void панельІнструментівіToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void пензельToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
