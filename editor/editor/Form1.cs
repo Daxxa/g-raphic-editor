@@ -384,5 +384,56 @@ namespace editor
                 tempDraw = (Bitmap)snapshot.Clone();
             }
         }
+
+        private void пензельToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedTool = button1.Name;
+        }
+
+        private void розпиленняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedTool = button2.Name;
+        }
+
+        private void гумкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void фонToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedTool = "q";
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+
+
+
+                button4.BackColor = MyDialog.Color;
+                panel1.BackColor = MyDialog.Color;
+
+                g.Clear(Color.White);
+                g = Graphics.FromImage(snapshot);
+                g.FillRectangle(new SolidBrush(MyDialog.Color), 0, 0, panel1.ClientRectangle.Width, this.ClientRectangle.Height);
+                g = panel1.CreateGraphics();
+
+
+
+            }
+        }
+
+        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
+
+        }
     }
 }
