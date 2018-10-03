@@ -102,7 +102,7 @@ namespace editor
         private void button7_Click(object sender, EventArgs e)
         {
             Form1 mainf = new Form1();
-            int x, y, xx, yy;
+            int x, y;
             x = Convert.ToInt32(textBox1.Text);
             y = Convert.ToInt32(textBox2.Text);
 
@@ -494,7 +494,7 @@ namespace editor
 
         private void гумкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            selectedTool = button3.Name;
 
         }
 
@@ -541,6 +541,16 @@ namespace editor
             form2.ShowDialog();
 
 
+        }
+
+        private void створитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void закритиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
