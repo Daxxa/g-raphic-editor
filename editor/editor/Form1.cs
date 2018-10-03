@@ -33,7 +33,7 @@ namespace editor
         Bitmap snapshot;
         Bitmap tempDraw;
         Color foreColor;
-        string selectedTool;
+        string selectedTool="button1";
         int lineWidth;
         int CursorX;
         int CursorY;
@@ -59,6 +59,7 @@ namespace editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+         
 
         }
 
@@ -213,7 +214,7 @@ namespace editor
                     {
                         tempDraw = (Bitmap)snapshot.Clone();
                         Graphics g = Graphics.FromImage(tempDraw);
-                        Pen myPen = new Pen(foreColor, lineWidth);
+                        Pen myPen = new Pen(CurrentColor, lineWidth);
                         g.DrawLine(myPen, x1, y1, x2, y2);
                         myPen.Dispose();
                         e.Graphics.DrawImageUnscaled(tempDraw, 0, 0);
@@ -551,6 +552,29 @@ namespace editor
         private void закритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int k = comboBox1.SelectedIndex;
+            switch (k )
+            {
+                case 0:
+                    {
+                        lineWidth = 1;
+                    }
+                    break;
+                case 1:
+                    {
+                        lineWidth = 2;
+                    }
+                    break;
+                case 2:
+                    {
+                        lineWidth = 3;
+                    }
+                    break;
+            }
         }
     }
 }

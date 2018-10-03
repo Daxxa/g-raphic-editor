@@ -48,3 +48,4 @@ D:\aproj\editor\editor\obj\Debug\editor.Properties.Resources.resources
 D:\aproj\editor\editor\obj\Debug\editor.csproj.GenerateResource.Cache
 D:\aproj\editor\editor\obj\Debug\editor.Form2.resources
 D:\graphic\editor\editor\obj\Debug\editor.Form2.resources
+D:\komanda\graphic-editor\editor\editor\obj\Debug\editor.Form2.resources

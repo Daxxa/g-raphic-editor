@@ -45,6 +45,8 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -52,9 +54,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -93,28 +93,28 @@
             // відкритиToolStripMenuItem
             // 
             this.відкритиToolStripMenuItem.Name = "відкритиToolStripMenuItem";
-            this.відкритиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.відкритиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.відкритиToolStripMenuItem.Text = "Відкрити";
             this.відкритиToolStripMenuItem.Click += new System.EventHandler(this.відкритиToolStripMenuItem_Click);
             // 
             // зберегтиToolStripMenuItem
             // 
             this.зберегтиToolStripMenuItem.Name = "зберегтиToolStripMenuItem";
-            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.зберегтиToolStripMenuItem.Text = "Зберегти";
             this.зберегтиToolStripMenuItem.Click += new System.EventHandler(this.зберегтиToolStripMenuItem_Click);
             // 
             // зберегтиЯкToolStripMenuItem
             // 
             this.зберегтиЯкToolStripMenuItem.Name = "зберегтиЯкToolStripMenuItem";
-            this.зберегтиЯкToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.зберегтиЯкToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.зберегтиЯкToolStripMenuItem.Text = "Зберегти як";
             this.зберегтиЯкToolStripMenuItem.Click += new System.EventHandler(this.зберегтиЯкToolStripMenuItem_Click);
             // 
             // закритиToolStripMenuItem
             // 
             this.закритиToolStripMenuItem.Name = "закритиToolStripMenuItem";
-            this.закритиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.закритиToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.закритиToolStripMenuItem.Text = "Закрити";
             this.закритиToolStripMenuItem.Click += new System.EventHandler(this.закритиToolStripMenuItem_Click);
             // 
@@ -186,9 +186,9 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Mistral", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(9, 31);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(132, 273);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -208,7 +208,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.White;
             this.button10.Location = new System.Drawing.Point(92, 62);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(35, 35);
             this.button10.TabIndex = 0;
@@ -220,18 +220,44 @@
             // 
             this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
             this.button9.Location = new System.Drawing.Point(49, 62);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(35, 35);
             this.button9.TabIndex = 13;
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.Font = new System.Drawing.Font("Mistral", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.Location = new System.Drawing.Point(49, 105);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(36, 35);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Колір";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Mistral", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(6, 105);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Фон";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button8
             // 
             this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
             this.button8.Location = new System.Drawing.Point(6, 62);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(35, 35);
             this.button8.TabIndex = 0;
@@ -250,7 +276,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(6, 241);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(121, 23);
             this.button7.TabIndex = 11;
@@ -262,7 +288,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(35, 213);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(92, 23);
             this.textBox2.TabIndex = 10;
@@ -272,7 +298,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(35, 191);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(92, 23);
             this.textBox1.TabIndex = 9;
@@ -299,19 +325,6 @@
             this.label1.Text = "X:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Font = new System.Drawing.Font("Mistral", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(49, 105);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 35);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Фон";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -320,30 +333,18 @@
             "2 px",
             "3 px"});
             this.comboBox1.Location = new System.Drawing.Point(6, 147);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "1 px";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Mistral", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(6, 105);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Колір";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button3
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.Location = new System.Drawing.Point(92, 19);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 35);
             this.button3.TabIndex = 2;
@@ -354,7 +355,7 @@
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Location = new System.Drawing.Point(49, 19);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 35);
             this.button2.TabIndex = 1;
@@ -365,7 +366,7 @@
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 0;
@@ -376,7 +377,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(149, 31);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(473, 303);
             this.panel1.TabIndex = 2;
@@ -402,7 +403,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(2000, 1999);
             this.Name = "Form1";
             this.Text = "Графічний редактор - Skeleton © V1.0";
