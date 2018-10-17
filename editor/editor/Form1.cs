@@ -59,7 +59,8 @@ namespace editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+            panel1.Width = 500;
+            panel1.Height = 250;
 
         }
 
@@ -74,10 +75,11 @@ namespace editor
                 button5.BackColor = MyDialog.Color;
                 CurrentColor = MyDialog.Color;
 
-
-            }
+ 
+    }
             
-        }
+
+    }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -576,5 +578,36 @@ namespace editor
                     break;
             }
         }
+
+        public Color getColor() { return CurrentColor; }
+
+        public Color getColorGround() { return CurrentBack; }
+        public bool getResult()
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
+        }
+        public int[] getResult1()
+        {
+            int[] mas = new int[2];
+            panel1.Width = 500;
+            panel1.Height = 250;
+            x1 = panel1.Width;
+            x2 = panel1.Height;
+            mas[0] = x1;
+            mas[1] = x2;
+            return mas;
+       
+
+
+        }
     }
+ 
+    
 }

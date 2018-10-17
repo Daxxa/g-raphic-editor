@@ -1,0 +1,8 @@
+D:\aproj\editor\editorTest\bin\Debug\editorTest.dll
+D:\aproj\editor\editorTest\bin\Debug\editorTest.pdb
+D:\aproj\editor\editorTest\bin\Debug\editor.exe
+D:\aproj\editor\editorTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\aproj\editor\editorTest\bin\Debug\editor.pdb
+D:\aproj\editor\editorTest\obj\Debug\editorTest.csprojResolveAssemblyReference.cache
+D:\aproj\editor\editorTest\obj\Debug\editorTest.dll
+D:\aproj\editor\editorTest\obj\Debug\editorTest.pdb
